@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}GA</title>
+    
+    <!-- Стили -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <!-- Библиотеки -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- Данные статей (генерируется плагином) -->
+    <script src="/assets/js/articles-data.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Шапка -->
+        <header>
+            <h1>MYSITE</h1>
+            <select id="language">
+                <option value="ru">RU Русский</option>
+                <option value="en">EN English</option>
+            </select>
+        </header>
+        
+        <!-- Основной контент -->
+        <main>
+            {% include sidebar.html %}
+            {{ content }}
+        </main>
+        
+        <!-- Подвал -->
+        <footer>
+            <p>Ga</p>
+        </footer>
+    </div>
+    
+    <!-- ВАШ ОСНОВНОЙ СКРИПТ (в самом конце body) -->
+    <script src="/assets/js/articles-loader.js"></script>
+</body>
+</html>

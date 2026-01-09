@@ -1,0 +1,75 @@
+
+    # _config.yml
+title: "GA"
+description: "Интерактивная энциклопедия по аналоговым и цифровым схемам"
+baseurl: ""  # Для project pages: "/имя-репозитория"
+url: "https://AntonGLi.github.io"  # или ваш домен
+
+# 1. ВКЛЮЧАЕМ ПЛАГИНЫ (ВАЖНО!)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+# Ваши кастомные плагины в _plugins/ загружаются автоматически
+
+# 2. ОБРАБОТКА MARKDOWN
+markdown: kramdown
+kramdown:
+  input: GFM  # GitHub Flavored Markdown
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# 3. НАСТРОЙКИ САЙТА
+permalink: pretty  # /articles/my-article/
+timezone: Europe/Moscow
+encoding: utf-8
+lang: ru
+
+# 4. ПУТИ И ПАПКИ
+source: .
+destination: ./_site
+plugins_dir: _plugins
+layouts_dir: _layouts
+includes_dir: _includes
+data_dir: _data
+collections_dir: .
+
+# 5. КОЛЛЕКЦИИ (если нужно)
+collections:
+  articles:
+    output: false  # Мы сами генерируем через плагин
+
+# 6. EXCLUDE - что исключить из сборки
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .gitignore
+  - README.md
+  # НЕ исключаем articles/ - они нужны плагину!
+
+# 7. ВКЛЮЧАЕМ ПАПКУ ASSETS
+include:
+  - assets
+  - _data  # Чтобы articles.json попал в _site
+
+# 8. ТЕМА (опционально)
+theme: minima  # Стандартная тема GitHub
+
+# 9. ДЕФОЛТНЫЕ НАСТРОЙКИ
+defaults:
+  - scope:
+      path: ""  # Все файлы
+    values:
+      layout: "default"
+  - scope:
+      path: "assets"
+    values:
+      layout: null  # Не применять layout к статическим файлам
+
+# 10. SEO плагин (если используете)
+jekyll-seo-tag:
+  title: true
+  description: true
+  author: true
